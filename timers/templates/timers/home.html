@@ -1,25 +1,44 @@
-<!-- Site contentss -->
+<!-- Site contents -->
 
 <!DOCTYPE html>
-<html lang="pl">
+<!-- <html lang="pl"> -->
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TimeFlow</title>
 </head>
-<body>
 
+<body>
     <header>
         <h1>TimeFlow</h1>
         <p>Manage your time</p>
     </header>
 
     <main>
+        
         <h2>Your activities</h2>
 
         <p>No active timers</p>
 
-        <button>+ Add an activity</button>
+                
+        <form>
+            <label for="activity">Activity:</label><br>
+            <input type="text" id="activity" name="activity" required><br>
+
+            <label for="duration">Time:</label><br>
+            <input type="number" id="duration" name="duration" min="1" required><br>
+            <button type="submit">Add an activity</button><br>
+        </form>
+        
+        {% if activity %}               <!-- sprawdza czy aktywnosc jest przekazana -->
+            <h3>Your activity:</h3>
+            <!-- activity and duration - prints values -->
+            <p>{{ activity }} — {{ duration }} minutes</p>
+        {% endif %}                     <!-- koniec warunku -->
+
+
     </main>
 
 </body>
